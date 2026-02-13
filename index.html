@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haxball - Multiplayer Soccer</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Menu Screen -->
+      <div id="menu">
+        <div class="title">
+          <h1>HAXBALL</h1>
+          <p>Multiplayer Browser Soccer</p>
+        </div>
+
+        <div class="input-group">
+          <input type="text" id="playerName" placeholder="Your Name" maxlength="15" />
+          <input type="text" id="roomId" placeholder="Room ID (to join)" maxlength="15" />
+        </div>
+
+        <div class="button-group">
+          <button id="createBtn">Create Room</button>
+          <button id="joinBtn">Join Room</button>
+        </div>
+
+        <div id="error"></div>
+
+        <div id="roomDisplay">
+          <p>Share this Room ID with friends:</p>
+          <div class="room-id-container">
+            <span id="roomIdDisplay"></span>
+            <button id="copyBtn">Copy</button>
+          </div>
+        </div>
+
+        <div class="controls-info">
+          <p><span>WASD</span> - Move your player</p>
+          <p><span>SPACE</span> - Kick the ball</p>
+          <p><span>T</span> - Switch teams (in lobby)</p>
+        </div>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="game">
+        <canvas id="gameCanvas"></canvas>
+        <div class="game-info">
+          <p><span>WASD</span> Move</p>
+          <p><span>SPACE</span> Kick</p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
