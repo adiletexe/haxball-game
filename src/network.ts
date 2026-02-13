@@ -4,12 +4,13 @@ import { NetworkMessage, Player, Ball, GameState } from './types';
 type MessageHandler = (message: NetworkMessage, peerId: string) => void;
 
 // PeerJS server configuration
-// Set VITE_PEER_SERVER_HOST in your environment for production
+// In production, connects to same host. In dev, connects to localhost:3000
+const isProduction = window.location.hostname !== 'localhost';
 const PEER_CONFIG = {
-  host: import.meta.env.VITE_PEER_SERVER_HOST || 'localhost',
-  port: import.meta.env.VITE_PEER_SERVER_PORT ? parseInt(import.meta.env.VITE_PEER_SERVER_PORT) : 9000,
+  host: window.location.hostname,
+  port: isProduction ? 443 : 3000,
   path: '/peerjs',
-  secure: import.meta.env.VITE_PEER_SERVER_HOST ? true : false, // Use HTTPS in production
+  secure: isProduction,
 };
 
 export class Network {
